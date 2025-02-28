@@ -11,5 +11,7 @@ class Solution {
         for(int i=k;i<nums.length;i++){
             nums[i]=0;
         }
+
+        
     }
 }
