@@ -2,11 +2,11 @@ class Solution {
     public int[] closestPrimes(int left, int right) {
         ArrayList <Integer> a=new ArrayList<>();
         for(int i=left;i<=right;i++){
-            if(isprime(i)==true){
+            if(isprime(i)){
                 a.add(i);
             }
         }
-        double cnt=1.2e100;int[] mn=new int[2];mn[0]=-1;mn[1]=-1;
+        double cnt=Integer.MAX_VALUE;int[] mn=new int[2];mn[0]=-1;mn[1]=-1;
         for(int j=0;j<a.size()-1;j++){
             if(a.get(j+1)-a.get(j)<cnt){
                 mn[0]=a.get(j);
