@@ -1,8 +1,9 @@
 class Solution {
     public int[] closestPrimes(int left, int right) {
+        boolean[] isPrime = sieve(right);
         ArrayList <Integer> a=new ArrayList<>();
         for(int i=left;i<=right;i++){
-            if(isprime(i)){
+            if (isPrime[i]) {
                 a.add(i);
             }
         }
@@ -16,16 +17,17 @@ class Solution {
         }
         return mn;
     }
-    public static boolean isprime(int n){
-        if(n<2){return false;}
-        if(n==2){
-            return true;
-        }
-        if(n%2==0){return false;}
-        for(int i=3;i*i<=n;i+=2){
-            if(n%i==0)return false;
-        }
-        return true;
+    private boolean[] sieve(int n) {
+        boolean[] isPrime = new boolean[n + 1];
+        for (int i = 2; i <= n; i++) isPrime[i] = true;
 
+        for (int p = 2; p * p <= n; p++) {
+            if (isPrime[p]) {
+                for (int i = p * p; i <= n; i += p) {
+                    isPrime[i] = false;
+                }
+            }
+        }
+        return isPrime;
     }
 }
