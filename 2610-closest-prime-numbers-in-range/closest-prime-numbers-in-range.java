@@ -6,7 +6,7 @@ class Solution {
                 a.add(i);
             }
         }
-        double cnt=Integer.MAX_VALUE;int[] mn={-1,-1};
+        int cnt=Integer.MAX_VALUE;int[] mn={-1,-1};
         for(int j=0;j<a.size()-1;j++){
             if(a.get(j+1)-a.get(j)<cnt){
                 mn[0]=a.get(j);
