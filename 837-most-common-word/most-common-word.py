@@ -3,8 +3,6 @@ class Solution:
         c=re.sub(r'[^\w]',' ',paragraph.lower())
         l=Counter(c.split())
         for i,f in l.most_common():
-            if i in banned:
-                continue
-            else:
+            if i not in banned:
                 return i
         return ""
