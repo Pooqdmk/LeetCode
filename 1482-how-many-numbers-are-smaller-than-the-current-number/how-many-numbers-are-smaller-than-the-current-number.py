@@ -12,3 +12,15 @@ class Solution:
         for i in nums:
             li.append(d[i])
         return li
+
+        # l=sorted(list(set(nums)))
+        # d={}
+        # k=0
+        # for i in l:
+        #     d[i]=k
+        #     k+=1
+        # li=[]
+        # for i in nums:
+        #     li.append(d[i])
+        # return li
+
