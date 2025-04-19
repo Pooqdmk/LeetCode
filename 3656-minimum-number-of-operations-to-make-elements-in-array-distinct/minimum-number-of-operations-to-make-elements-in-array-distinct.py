@@ -1,8 +1,7 @@
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
         cnt=0
-        for i in range(len(nums)):
-            if len(nums)>=3 and len(set(nums))!=len(nums):
+        while len(nums)>=3 and len(set(nums))!=len(nums):
                 nums=nums[3:]
                 cnt+=1
         if len(nums)!=0:
