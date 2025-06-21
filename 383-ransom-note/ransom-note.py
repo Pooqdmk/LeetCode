@@ -4,11 +4,12 @@ class Solution:
         l=Counter(magazine)
 
         for key,val in d.items():
-            if key in l:
-                if val>l[key]:
-                    return False
-            else:
+            if l[key] <val:
                 return False
+            #     if val>l[key]:
+            #         return False
+            # else:
+            #     return False
         return True
                     
 
