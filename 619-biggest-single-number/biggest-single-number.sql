@@ -1,4 +1,7 @@
 # Write your MySQL query statement below
+#scalar sub query returns a null if nothing is given out by hte inner sub query 
+#with a single select it nothin is is given by the limit then it prints nothing
+
 select
 (
 select *
