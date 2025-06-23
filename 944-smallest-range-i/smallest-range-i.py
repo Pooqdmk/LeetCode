@@ -4,8 +4,8 @@ class Solution:
         if len(nums)==1:
             return 0
         
-        nums.sort()
-        mn=(nums[-1]-k) - (nums[0]+k)
+        # nums.sort()
+        mn=(max(nums)-k) - (min(nums)+k)
         if mn>0:
             return mn
         else:
