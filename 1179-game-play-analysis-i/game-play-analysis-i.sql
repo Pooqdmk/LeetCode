@@ -1,17 +1,15 @@
 # Write your MySQL query statement below
--- with cte as(
--- select event_date
--- from Activity
+-- select player_id,min(event_date) as first_login
+-- from activity
 -- group by player_id
--- order by event_date
--- limit 1
--- )
+-- order by player_id
 
--- select distinct a.player_id,c.event_date
--- from activity a,cte c
--- order by a.player_id
-select player_id,min(event_date) as first_login
-from activity
-group by player_id
+with cte as(
+    select player_id,event_date,row_number() over(partition by player_id order by event_date) as rn
+    from activity
+)
+select player_id,event_date as first_login
+from cte
+where rn=1
 order by player_id
--- order by player_id,event_date
+
