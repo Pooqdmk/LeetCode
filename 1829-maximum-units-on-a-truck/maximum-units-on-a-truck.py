@@ -5,4 +5,6 @@ class Solution:
         for i in l:
             cnt+=(min(truckSize,i[0]))*i[1]
             truckSize-=min(truckSize,i[0])
+            if truckSize == 0:
+                break
         return cnt
