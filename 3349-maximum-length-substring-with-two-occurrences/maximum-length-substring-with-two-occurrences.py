@@ -11,5 +11,7 @@ class Solution:
                         exist=False
                 if exist:
                     mx=max(mx,len(s[i:j]))
+                else:
+                    break
         return mx
 
