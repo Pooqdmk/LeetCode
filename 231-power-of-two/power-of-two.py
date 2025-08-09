@@ -1,8 +1,6 @@
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
-        if n<=0:
-            return False
-        m=math.log(n,2)
-        return 2**round(m) == n
-            
-        
+
+        if n>0 and 2**floor(log(n,2)) == n:
+            return True
+        return False
