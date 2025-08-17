@@ -3,7 +3,7 @@ class Solution:
         c.sort(reverse = True)
         n=len(c)
         i=n
-        while i > 0:
+        while i >= 0:
             cnt=0
             for j in c:
                 if j >= i:
@@ -13,5 +13,5 @@ class Solution:
             if cnt >= i:
                 return i
             i-=1
-        return 0
+        # return 0
 
