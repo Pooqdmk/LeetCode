@@ -1,23 +1,23 @@
 class Solution:
     def strWithout3a3b(self, a: int, b: int) -> str:
-        res=''
+        res=[]
 
         while a>0 or b>0:
             if a>b:
                 if len(res)>1 and res[-1] == res[-2] == 'a':
-                    res+='b'
+                    res.append('b')
                     b-=1
                 else:
-                    res+='a'
+                    res.append('a')
                     a-=1
 
             else:
                 if len(res)>1 and res[-1] == res[-2] == 'b':
-                    res+='a'
+                    res.append('a')
                     a-=1
                 else:
-                    res+='b'
+                    res.append('b')
                     b-=1
-        return res
+        return ''.join(res)
 
             
