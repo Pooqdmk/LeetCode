@@ -1,12 +1,8 @@
 class Solution:
     def findClosest(self, x: int, y: int, z: int) -> int:
-        a=abs(x-z)
-        b=abs(y-z)
-        if a>b:
-            return 2
-        elif a==b:
-            return 0
-        
-        else:
+        if abs(z-x) < abs(z-y):
             return 1
-        
+        elif abs(z-y) == abs(z-x):
+            return 0
+        else:
+            return 2
