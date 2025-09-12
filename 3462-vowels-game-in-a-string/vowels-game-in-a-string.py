@@ -3,7 +3,7 @@ class Solution:
         
         n=0
         for i in s:
-            if i.lower() in 'aeiou':
+            if i.lower() in set('aeiou'):
                 n+=1
         
         if n==0:
