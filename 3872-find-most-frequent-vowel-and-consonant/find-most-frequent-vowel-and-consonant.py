@@ -1,6 +1,8 @@
 class Solution:
     def maxFreqSum(self, s: str) -> int:
-        d=Counter(s)
+        d={}
+        for i in s:
+            d[i] = d.get(i,0)+1
         seen = {'a','e','i','o','u'}
         vowel,c=0,0
         for k,v in d.items():
