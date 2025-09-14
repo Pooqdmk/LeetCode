@@ -15,10 +15,8 @@ class Solution:
         l=defaultdict(list)
         for i in wordlist:
             d[i.lower()].append(i)
-
-
-        for i in wordlist:
             l[dovowel(i.lower())].append(i)
+            
 
         res=[]
         words = set(wordlist)
