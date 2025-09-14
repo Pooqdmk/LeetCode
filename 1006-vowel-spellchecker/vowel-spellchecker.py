@@ -3,13 +3,7 @@ class Solution:
 
         def dovowel(i):
             vowels = {'a','e','i','o','u'}
-            res = []
-            for j in i:
-                if j in vowels:
-                    res.append('*')
-                else:
-                    res.append(j)
-            return ''.join(res)
+            return ''.join('*' if j in vowels else j for j in i)
 
         d=defaultdict(list)
         l=defaultdict(list)
