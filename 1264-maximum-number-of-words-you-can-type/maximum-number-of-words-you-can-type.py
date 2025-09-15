@@ -1,12 +1,16 @@
 class Solution:
-    def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
-        cnt=0
+    def canBeTypedWords(self, text: str, bl: str) -> int:
         l=text.split()
+        cnt=0
+        s=set(bl)
         for i in l:
-            present=False
+            valid=True
             for j in i:
-                if j in brokenLetters:
-                    present=True
-            if not present:
+                if j in s:
+                    valid=False
+                    break
+            if valid:
                 cnt+=1
+
         return cnt
+        
