@@ -39,7 +39,7 @@ class Router:
             self.s.remove(removed)
             self.d[removed[1]].popleft()
 
-            return list(removed)
+            return removed
         return []
 
 
