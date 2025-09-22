@@ -2,12 +2,13 @@ class Solution:
     def maxFrequencyElements(self, nums: List[int]) -> int:
         d=Counter(nums)
         l=list(d.values())
-        l.sort(reverse=True)
-        mx=l[0]
+        mx=0
         res=0
-        for i in range(len(l)):
-            if mx == l[i]:
-                res+=mx
-            else:
-                break
+        for i in l:
+            prev=mx
+            mx=max(mx,i)
+            if i == mx:
+                res+=i
+            if prev!=mx:
+                res=i
         return res
