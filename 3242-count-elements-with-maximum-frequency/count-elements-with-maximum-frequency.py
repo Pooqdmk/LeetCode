@@ -1,6 +1,8 @@
 class Solution:
     def maxFrequencyElements(self, nums: List[int]) -> int:
-        d=Counter(nums)
+        d={}
+        for val in nums:
+            d[val]=d.get(val,0)+1
         l=list(d.values())
         mx=0
         res=0
