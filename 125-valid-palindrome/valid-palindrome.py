@@ -1,16 +1,8 @@
-class Solution(object):
-    def isPalindrome(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
-        n=""
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        l = []
         for i in s:
-            if i.isalnum():
-                n=n+i
-        
-        n=n.lower()
-        if n==n[::-1]:
-            return True
-        else:
-            return False
+            if i.isalpha() or i.isdigit():
+                l.append(i.lower())
+        l = ''.join(l)
+        return l == l[::-1]
