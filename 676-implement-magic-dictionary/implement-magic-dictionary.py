@@ -13,17 +13,14 @@ class MagicDictionary:
         word = list(searchWord)
         if n in self.d:
             l=self.d[n]
-            found = False
+            
             for i in l:
                 m = list(i)
                 if sum(1 for j,k in zip(word,m) if j == k ) == n-1:
-                    found = True
+                    
                     return True
-            if not found:
-                return False
-                
-        else:
-            return False
+            
+        return False
                 
 
 
