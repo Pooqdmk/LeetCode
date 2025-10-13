@@ -1,18 +1,26 @@
 class Solution:
     def removeAnagrams(self, words: List[str]) -> List[str]:
-        stack = []
-        i=0
-        while i < len(words):
-            if stack and Counter(stack[-1]) == Counter(words[i]):
-                i+=1
-            else:
-                stack.append(words[i])
-                i+=1
-        return stack
+        
 
-        # res=[words[0]]
+        
+        while True:
+            i=0
+            found = False
+            while i < len(words)-1:
 
-        # for i in range(1,len(words)):
-        #     if Counter(words[i]) != Counter(res[-1]):
-        #         res.append(words[i])
-        # return res
+                a = words[i]
+                b = words[i+1]
+                d,l = {},{}
+                if len(a) == len(b):
+                    for j in range(len(a)):
+                        d[a[j]] = d.get(a[j],0)+1
+                        l[b[j]] = l.get(b[j],0)+1
+                    if d == l:
+                        found = True
+                        words[:] = words[:i+1]+words[i+2:]
+                        break
+                i+=1
+            if not found:
+                break
+        return words
+
