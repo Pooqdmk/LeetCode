@@ -6,9 +6,10 @@ class Solution:
         
         i=0
         while True:
-            if i%value not in d or d[i%value] == 0:
+            cur = i%value
+            if cur not in d or d[cur] == 0:
                 return i
             else:
-                d[i%value]-=1
+                d[cur]-=1
             i+=1
         
