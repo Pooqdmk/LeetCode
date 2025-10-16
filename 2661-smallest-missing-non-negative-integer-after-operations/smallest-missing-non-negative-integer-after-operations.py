@@ -7,8 +7,8 @@ class Solution:
         i=0
         while True:
             cur = i%value
-            if cur not in d or d[cur] == 0:
-                return i
+            if d.get(cur,0) == 0:
+                return i 
             else:
                 d[cur]-=1
             i+=1
