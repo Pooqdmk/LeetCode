@@ -32,21 +32,17 @@ class MyLinkedList:
         cur.next = newNode
 
     def addAtIndex(self, index: int, val: int) -> None:
-        newNode = Node(val = val)
-        i = 0
-        
-        cur = self.l.next
-        prev = self.l
-        while cur:
-            if i == index:
-                prev.next = newNode
-                newNode.next = cur
-                break
+        cur = self.l
+        i=0
+        while i<index and cur.next:
             i+=1
-            prev = cur
             cur = cur.next
-        if i == index:
-            prev.next = newNode
+        if i!=index:
+            return 
+        newNode = Node(val=val, next=cur.next)
+        cur.next = newNode
+
+
 
     def deleteAtIndex(self, index: int) -> None:
         i = 0
