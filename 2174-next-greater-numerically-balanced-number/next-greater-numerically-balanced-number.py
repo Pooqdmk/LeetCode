@@ -4,8 +4,9 @@ class Solution:
         def check(n):
             m = str(n)
             s = set(m)
+            d = Counter(m)
             for i in s:
-                if int(i) != m.count(i) :
+                if int(i) != d[i] :
                     return False
             return True
         
