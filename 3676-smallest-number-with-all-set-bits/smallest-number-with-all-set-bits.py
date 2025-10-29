@@ -3,6 +3,6 @@ class Solution:
         i = n
         while True:
             b = bin(i)[2:]
-            if len(set(b)) == 1 and b[0] == '1':
+            if b.count('1') == len(b):
                 return i
             i+=1
