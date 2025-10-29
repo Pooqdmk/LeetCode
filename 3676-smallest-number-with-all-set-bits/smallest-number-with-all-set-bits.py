@@ -1,8 +1,7 @@
 class Solution:
     def smallestNumber(self, n: int) -> int:
-        i = n
+        i = 0
         while True:
-            b = bin(i)[2:]
-            if b.count('1') == len(b):
-                return i
+            if 2**i > n:
+                return 2**i -1
             i+=1
