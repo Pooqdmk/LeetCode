@@ -4,21 +4,24 @@ class LRUCache:
         self.d = {}
         self.capacity = capacity
         self.q = deque()
+        self.seen = set()
     def get(self, key: int) -> int:
-        if key in self.q:
+        if key in self.seen:
             self.q.remove(key)
             self.q.append(key)
             return self.d[key]
         return -1
         
     def put(self, key: int, value: int) -> None:
-        if key in self.d:
+        if key in self.seen:
             self.d[key] = value
             self.q.remove(key)
             
         elif self.capacity == len(self.d):
-            del self.d[self.q.popleft()]    
-
+            r = self.q.popleft()
+            del self.d[r] 
+            self.seen.remove(r)   
+        self.seen.add(key)
         self.q.append(key)
         self.d[key] = value  
         
