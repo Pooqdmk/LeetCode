@@ -1,16 +1,17 @@
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
-        h = [1]
-        visit = set()
+        arr = [1]
+        i2,i3,i5 = 0,0,0
+        for i in range(1,n):
 
-        for i in range(n):
-            num = heapq.heappop(h)
-
-            if i == n-1:
-                return num
+            mn = min(arr[i2]*2,arr[i3]*3,arr[i5]*5)
+            arr.append(mn)
+            if mn == arr[i2]*2:
+                i2+=1
+            if mn == arr[i3]*3:
+                i3+=1
+            if mn == arr[i5]*5:
+                i5+=1
+        return arr[n-1]
             
-            for j in [2,3,5]:
-                if j*num not in visit:
-                    visit.add(j*num)
-                    heapq.heappush(h,j*num)
             
