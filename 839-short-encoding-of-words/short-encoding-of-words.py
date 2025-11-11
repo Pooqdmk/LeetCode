@@ -2,7 +2,7 @@ class Solution:
     def minimumLengthEncoding(self, words: List[str]) -> int:
         words.sort(key = len,reverse = True)
         res = [words[0]]
-
+        l = len(words[0])
         for i in range(1,len(words)):
             found = False
             for j in res:
@@ -11,6 +11,7 @@ class Solution:
                     break
 
             if not found: 
+                l+=len(words[i])
                 res.append(words[i])
         # print('#'.join(res))
-        return len('#'.join(res))+1
+        return l+len(res)
