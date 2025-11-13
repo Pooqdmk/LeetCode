@@ -5,59 +5,38 @@
 #         self.next = next
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        p,q = [],[]
-
-        cur = l1
-        while cur:
-            p.append(cur.val)
-            cur = cur.next
-        cur = l2
-        while cur:
-            q.append(cur.val)
-            cur = cur.next
-
-        res=[]
-        p,q =p[::-1],q[::-1]
+        s1,s2 = [],[]
+        while l1:
+            s1.append(l1.val)
+            l1 = l1.next
+        
+        while l2:
+            s2.append(l2.val)
+            l2 = l2.next
+        
         rem = 0
-        i,j = 0,0
-        while i<len(p) and j<len(q):
-            n = p[i]+q[i]+rem
-            print(n)
-            if n < 10:
-                res.append(n)
-            else:
-                res.append(n%10)
+        s3 = []
+        while s1 or s2:
+            a,b = 0,0
+            if s1:
+                a = s1.pop() 
+            if s2:
+                b = s2.pop() 
+            n = a+b+rem
             rem = n//10
-            i+=1
-            j+=1
-        while i<len(p):
-            n = p[i]+rem
-            if n < 10:
-                res.append(n)
-            else:
-                res.append(n%10)
-            rem = n//10
-            i+=1
-        while j<len(q):
-            n = q[j]+rem
-            if n < 10:
-                res.append(n)
-            else:
-                res.append(n%10)
-            rem = n//10
-            j+=1
+            s3.append(n%10)
+        
         if rem > 0:
-            res.append(rem)
+            s3.append(rem)
+        
         l = ListNode()
         cur = l
-        res = res[::-1]
-        k = 0
-        while cur and k<len(res):
-            node = ListNode(val = res[k])
-            k+=1
-            cur.next = node
+        while cur and s3:
+            newNode = ListNode(s3.pop())
+            cur.next = newNode
             cur = cur.next
         
         return l.next
+
         
         
