@@ -19,7 +19,7 @@ class Solution:
         i = 0
         dummy = ListNode()
         cur = dummy
-        while cur and i<n:
+        while i<n:
             newnode = ListNode(val = a[i])
             i+=1
             cur.next = newnode
