@@ -17,11 +17,18 @@ class Solution:
         k = k%n
         a = a[-k:] + a[:-k]
         i = 0
-        dummy = ListNode()
-        cur = dummy
-        while i<n:
-            newnode = ListNode(val = a[i])
+        # dummy = ListNode()
+        # cur = dummy
+        # while i<n:
+        #     newnode = ListNode(val = a[i])
+        #     i+=1
+        #     cur.next = newnode
+        #     cur = cur.next
+        # return dummy.next
+
+        cur = head
+        while cur and i<n:
+            cur.val = a[i]
             i+=1
-            cur.next = newnode
             cur = cur.next
-        return dummy.next
+        return head
