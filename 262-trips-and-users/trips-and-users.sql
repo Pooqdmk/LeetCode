@@ -1,4 +1,4 @@
-select request_at as Day, round(sum(case when status like 'cancelled%' then 1 else 0 end)/count(*),2) as `Cancellation Rate`
+select request_at as Day, round(sum(case when status = 'cancelled_by_client' or status = 'cancelled_by_driver' then 1 else 0 end)/count(*),2) as `Cancellation Rate`
 from Trips as t
 join Users as u1
 on t.client_id  = u1.users_id
