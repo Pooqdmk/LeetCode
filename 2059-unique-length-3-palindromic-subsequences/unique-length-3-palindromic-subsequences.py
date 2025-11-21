@@ -6,8 +6,8 @@ class Solution:
             right[i]-=1
             
             for j in left:
-                if right[j]>0 and j+i not in seen:
-                    seen.add(j+i)
+                if right[j]>0:
+                    seen.add((j,i))
                     
             left.add(i)
             
