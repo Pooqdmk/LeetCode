@@ -1,9 +1,6 @@
 class Solution:
     def countPalindromicSubsequence(self, s: str) -> int:
-        right = {}
-        for i in s:
-            right[i] = right.get(i,0)+1
-        left = set()
+        left,right = set(),Counter(s)
         seen = set()
         for i in range(len(s)):
             right[s[i]]-=1
