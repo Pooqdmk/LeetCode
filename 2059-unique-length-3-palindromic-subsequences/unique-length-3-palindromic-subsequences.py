@@ -2,14 +2,14 @@ class Solution:
     def countPalindromicSubsequence(self, s: str) -> int:
         left,right = set(),Counter(s)
         seen = set()
-        for i in range(len(s)):
-            right[s[i]]-=1
+        for i in s:
+            right[i]-=1
             if len(left)>0:
                 for j in left:
-                    if j in right and right[j]>0 and j+s[i] not in seen:
-                        seen.add(j+s[i])
+                    if j in right and right[j]>0 and j+i not in seen:
+                        seen.add(j+i)
                         
-            left.add(s[i])
+            left.add(i)
             
         return len(seen)
             
