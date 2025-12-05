@@ -1,8 +1,11 @@
 class Solution:
     def countPartitions(self, nums: List[int]) -> int:
-        cnt=0
-        n=len(nums)
-        for i in range(n):
-            if abs(sum(nums[:i+1])-sum(nums[i+1:n]))%2==0 and nums[i+1:n]!=[]:
+        l,r = 0,sum(nums)
+        cnt = 0
+        for i in range(len(nums)-1):
+            l+=nums[0]
+            r-=nums[0]
+            if (l-r)%2 == 0:
                 cnt+=1
         return cnt
+
