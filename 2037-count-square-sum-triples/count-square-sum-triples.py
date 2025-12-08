@@ -5,6 +5,7 @@ class Solution:
         cnt = 0
         for i in range(n-2):
             for j in range(i+1,n-1):
-                if l[i] + l[j] in l[j+1:]:
+                s = sqrt(l[i] + l[j]) 
+                if s<=n and s == int(s):
                     cnt+=2
         return cnt
