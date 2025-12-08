@@ -5,7 +5,8 @@ class Solution:
         for word in dictionary:
             stack = []
             i,j = 0,0
-            while i < len(word) and j<len(s):
+            n = len(word)
+            while i < n and j<len(s):
                 if s[j] == word[i]:
                     stack.append(s[j])
                     i+=1
@@ -13,10 +14,10 @@ class Solution:
                 else:
                     j+=1
             if ''.join(stack) == word:
-                if len(word) > mx:
-                    mx = len(word)
+                if n > mx:
+                    mx = n
                     res = word
-                elif len(word) == mx:
+                elif n == mx:
                     if res > word:
                         res = word
         return res
