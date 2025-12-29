@@ -11,12 +11,20 @@ class Solution:
         def height(node):
             if not node:
                 return 0
+
             left = height(node.left)
             right = height(node.right)
-            
-            if abs(right - left) > 1:
-                bal[0] = False
-                return 0
             return 1+ max(left,right)
-        height(root)
+        
+        def b(node):
+            if not node:
+                return False
+            
+            if abs(height(node.right) - height(node.left)) > 1:
+                bal[0] = False
+                return 
+            
+            b(node.left)
+            b(node.right)
+        b(root)
         return bal[0]
