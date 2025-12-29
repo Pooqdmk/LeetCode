@@ -16,5 +16,7 @@ class Solution:
             mx[0] = max(mx[0], left+right)
             return 1 + max(left,right)
         height(root)
-
+        
         return mx[0]
+        
+        
