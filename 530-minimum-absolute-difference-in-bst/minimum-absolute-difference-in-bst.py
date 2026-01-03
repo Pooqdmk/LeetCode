@@ -6,18 +6,17 @@
 #         self.right = right
 class Solution:
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
-        res = []
+        prev = [None]
+        mn = [10**6]
 
         def dfs(node):
             if not node:
-                return 
+                return
+            
             dfs(node.left)
-            res.append(node.val)
+            if prev[0] != None:
+                mn[0] = min(mn[0], abs(node.val - prev[0]))
+            prev[0] = node.val
             dfs(node.right)
         dfs(root)
-
-        mn = 10**60
-        for i in range(len(res)-1):
-            mn = min(mn, abs(res[i]-res[i+1]))
-        return mn
-        
+        return mn[0]
