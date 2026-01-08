@@ -1,16 +1,16 @@
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        res=[]
-
-        def backtrack(start, comb):
-            if len(comb)==k:
-                res.append(comb.copy())
-                return 
+        res,sol =[],[]
+        def dfs(i):
+            if len(sol) == k:
+                res.append(sol[:])
+                return
             
-            for i in range(start,n+1):
-                comb.append(i)
-                backtrack(i+1,comb)
-                comb.pop()
-        
-        backtrack(1,[])
+            for j in range(i,n):
+                if j+1 not in sol:
+                    sol.append(j+1)
+                    dfs(j+1)
+                    sol.pop()
+            
+        dfs(0)
         return res
