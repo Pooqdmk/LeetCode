@@ -7,32 +7,18 @@
 class Solution:
     def subtreeWithAllDeepest(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         
-        d = {None: -1}
-
-        def dfs(node, parent = None):
+        
+        def dfs(node):
             if not node:
-                return 
+                return (None, 0)
             
-            d[node] = d[parent] + 1
-            dfs(node.left, node)
-            dfs(node.right, node)
-        dfs(root)
-        mx = max(d.values())
-        res = []
-        def ans(node):
-            if not node or mx == d.get(node):
-                return node
-            
-            left = ans(node.left)
-            right = ans(node.right)
+            left, l_dis = dfs(node.left)
+            right, r_dis = dfs(node.right)
 
-            if left and right:
-                return node
-            
-            if left:return left
-            if right:return right
-            return None
-        return ans(root)
-
-
-            
+            if l_dis > r_dis:
+                return (left, l_dis+1)
+            elif r_dis > l_dis:
+                return (right, r_dis+1)
+            else:
+                return (node,l_dis+1)
+        return dfs(root)[0]
