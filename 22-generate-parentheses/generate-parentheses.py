@@ -3,7 +3,7 @@ class Solution:
         res,sol = [],[]
         
         def dfs(i,open,close):
-            if len(sol[:]) == 2*n:
+            if i == 2*n+1:
                 res.append(''.join(sol[:]))
                 return
             
