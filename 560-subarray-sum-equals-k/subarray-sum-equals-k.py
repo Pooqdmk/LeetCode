@@ -1,12 +1,17 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-
-        d={}
-        d[0] = 1
-        res,s=0,0
+        d = {}
+        pre = 0
+        res = 0
         for i in nums:
-            s+=i
-            res+=d.get(s-k,0)  
-            d[s]=d.get(s,0)+1
+            pre+=i
+            if pre == k:
+                res+=1
+            rem = pre - k
+            if rem in d:
+                res+= d[rem]
+            d[pre] = d.get(pre,0)+1
+        print(d)
         return res
+
 
