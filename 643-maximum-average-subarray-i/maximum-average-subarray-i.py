@@ -6,7 +6,6 @@ class Solution:
             t+=i
             pre.append(t)
         mx = -10**60
-        print(pre)
         for i in range(len(nums)-k+1):
             print(pre[i+k] - pre[i])
             mx = max(mx, (pre[i+k] - pre[i])/k)
