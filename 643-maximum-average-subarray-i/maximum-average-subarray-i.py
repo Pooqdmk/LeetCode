@@ -8,8 +8,8 @@ class Solution:
         mx = -10**60
         for i in range(len(nums)-k+1):
             print(pre[i+k] - pre[i])
-            mx = max(mx, (pre[i+k] - pre[i])/k)
-        return mx
+            mx = max(mx, (pre[i+k] - pre[i]))
+        return mx/k
 
 
         
