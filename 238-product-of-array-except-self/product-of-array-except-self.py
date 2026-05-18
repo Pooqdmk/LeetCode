@@ -1,20 +1,21 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        z = 0
+        prod = 1
         p = 1
-        found = False
+        zero = 0
         for i in nums:
-            if i!= 0:
-                p*=i
+            if i == 0:
+                zero+=1
             else:
-                z+=1
-                found = True
+                p*=i
+            prod*=i
         res = []
         for i in nums:
-            if (found and i!=0) or z>1:
-                res.append(0)
-            elif i == 0:
+            if i == 0 and zero == 1:
                 res.append(p)
+            elif i == 0 and zero > 1:
+                res.append(0)
             else:
-                res.append(p//i)
+                res.append(prod//i)
         return res
+        
