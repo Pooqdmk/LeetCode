@@ -5,16 +5,13 @@
 #         self.next = next
 class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
-        cur = head
-        l = []
-        while cur:
-            l.append(cur.val)
-            cur = cur.next
-        
-        mx = 0
-        n=len(l)
-        for i in range(len(l)):
-            mx = max(mx,l[i]+l[n-1-i])
-        return mx
+        nums = []
 
-            
+        while head.next is not None:
+            nums.append(head.val)
+            head = head.next
+        nums.append(head.val)
+        mx = -10**60
+        for i in range(len(nums)//2):
+            mx = max(mx, nums[i]+nums[-i-1])
+        return mx
