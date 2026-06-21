@@ -7,4 +7,6 @@ class Solution:
             s+=i
             if s <= coins:
                 res+=1
+            else:
+                break
         return res
